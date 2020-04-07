@@ -305,6 +305,9 @@ function findCounty (zip) {
         else {return};
       })
     })
+    function logCounty(results){
+      console.log(results[0]['address_components'][3]['long_name']);
+    }
 }) //close successFunction
 
 } //close findCounty
