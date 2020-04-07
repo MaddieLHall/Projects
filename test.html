@@ -1,4 +1,10 @@
-test.html
+ <head>
+  <meta charset="UTF-8">
+</head> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+
+
+
 
 <script>
 /*
@@ -279,7 +285,28 @@ const zipcodes = [
 
 
 
-for (i = 0; i < zipcodes.length; i++) { 
-    console.log(zipcodes[i]); 
-} 
+//for (i = 0; i < zipcodes.length; i++) { 
+  //  findCounty(zipcodes[i])
+  //console.log(zipcodes[i]); }
+
+function findCounty (zip) {
+
+  //make a request to the google geocode api
+  $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key=AIzaSyARpjdrBMZ4sF6pEwcx-2vKRHLFabKqK5I').success(function(response){
+    //find the city and state and county
+    var address_components = response.results[0].address_components;
+    $.each(address_components, function(index, component){
+      var types = component.types;
+      $.each(types, function(index,type){
+        if type == 'administrative_area_level_2' {
+        	county = component.long_name;
+          console.log(county);
+        }
+        else {return};
+      })
+    })
+}) //close successFunction
+
+} //close findCoutny
+
 </script>
