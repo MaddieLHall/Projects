@@ -298,7 +298,7 @@ function findCounty (zip) {
     $.each(address_components, function(index, component){
       var types = component.types;
       $.each(types, function(index,type){
-        if type == 'administrative_area_level_2' {
+        if (type == 'administrative_area_level_2') {
         	county = component.long_name;
           console.log(county);
         }
@@ -307,6 +307,8 @@ function findCounty (zip) {
     })
 }) //close successFunction
 
-} //close findCoutny
+} //close findCounty
+
+
 
 </script>
