@@ -292,7 +292,7 @@ const zipcodes = [
 function findCounty (zip) {
 
   //make a request to the google geocode api
-  $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key=AIzaSyARpjdrBMZ4sF6pEwcx-2vKRHLFabKqK5I').success(function(response){
+  $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key=PUTKEYHERE').success(function(response){
     //find the city and state and county
     var address_components = response.results[0].address_components;
 
